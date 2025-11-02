@@ -5,7 +5,7 @@ from intents import intents
 vectorizer = load("models/vectorizer.pkl")
 clf = load("models/classifier.pkl")
 
-def get_response(text, threshold=0.3):
+def get_response(text, threshold=0.2):
     probs = clf.predict_proba(vectorizer.transform([text]))[0]
     tag_index = probs.argmax()
     confidence = probs[tag_index]
